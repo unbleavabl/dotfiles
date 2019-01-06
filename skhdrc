@@ -1,0 +1,99 @@
+# opens iTerm2
+alt - return : "${HOME}"/.config/chunkwm/scripts/misc/open_iTerm2.sh
+
+# opens Activity Monitor a la task manager
+shift + alt - escape : open "/Applications/Utilities/Activity Monitor.app"
+
+# opens home folder a la explorer
+fn + alt - e : open "${HOME}"
+
+# open downloads folder
+fn + alt - d : open "${HOME}/Downloads"
+
+# open apps
+fn + alt - c : open "/Applications/Google Chrome.app"
+alt - q : open "/Applications/qutebrowser.app"
+
+# ========== chunkwm ===========================
+
+# change focus
+lctrl + alt - h : chunkc tiling::window --focus west
+lctrl + alt - j : chunkc tiling::window --focus south
+lctrl + alt - k : chunkc tiling::window --focus north
+lctrl + alt - l : chunkc tiling::window --focus east
+
+# ========== Moving Windows ====================
+
+# move focused window
+cmd + alt - h : chunkc tiling::window --warp west
+cmd + alt - j : chunkc tiling::window --warp south
+cmd + alt - k : chunkc tiling::window --warp north
+cmd + alt - l : chunkc tiling::window --warp east
+
+# swap windows
+alt + shift - h : chunkc tiling::window --swap west
+alt + shift - j : chunkc tiling::window --swap south
+alt + shift - k : chunkc tiling::window --swap north
+alt + shift - l : chunkc tiling::window --swap east
+
+# move focused container to workspace
+shift + alt - m : chunkc tiling::window --send-to-desktop $(chunkc get _last_active_desktop) || \
+                  chunkc tiling::window --send-to-desktop (chunkc get _last_active_desktop)
+shift + alt - p : chunkc tiling::window --send-to-desktop prev
+shift + alt - n : chunkc tiling::window --send-to-desktop next
+shift + alt - 1 : chunkc tiling::window --send-to-desktop 1
+shift + alt - 2 : chunkc tiling::window --send-to-desktop 2
+shift + alt - 3 : chunkc tiling::window --send-to-desktop 3
+shift + alt - 4 : chunkc tiling::window --send-to-desktop 4
+shift + alt - 5 : chunkc tiling::window --send-to-desktop 5
+shift + alt - 6 : chunkc tiling::window --send-to-desktop 6
+
+# rotate windows clockwise and anticlockwise
+alt - r : chunkc tiling::desktop --rotate 90
+shift + alt - r : chunkc tiling::desktop --rotate 270
+
+# rotate on x and y axis
+shift + alt - x : chunkc tiling::desktop --mirror horizontal
+shift + alt - y : chunkc tiling::desktop --mirror vertical
+
+# ========== Floating Windows ==================
+
+# float / unfloat window
+shift + alt - space : chunkc tiling::window --toggle float
+
+# make floating window fill left-half / right-half of screen
+shift + alt - a : "${HOME}"/.config/chunkwm/scripts/window/float.sh left
+shift + alt - d : "${HOME}"/.config/chunkwm/scripts/window/float.sh right
+
+# make floating window center
+shift + alt - s : "${HOME}"/.config/chunkwm/scripts/window/float.sh down
+
+# make floating window fullscreen
+shift + alt - w : "${HOME}"/.config/chunkwm/scripts/window/float.sh up
+
+# ========== Resizing Windows ==================
+
+# resize windows
+lctrl + cmd - h : "${HOME}"/.config/chunkwm/scripts/window/resize.sh left
+lctrl + cmd - j : "${HOME}"/.config/chunkwm/scripts/window/resize.sh down
+lctrl + cmd - k : "${HOME}"/.config/chunkwm/scripts/window/resize.sh up
+lctrl + cmd - l : "${HOME}"/.config/chunkwm/scripts/window/resize.sh right
+
+# equalize size of windows
+lctrl + alt - 0 : chunkc tiling::desktop --equalize
+
+# ========== Misc ==============================
+
+# hard restart chunkwm
+lctrl + shift + alt - r : "${HOME}"/.config/chunkwm/scripts/misc/restart.sh
+
+# make window native fullscreen
+alt - f : chunkc tiling::window --toggle fullscreen
+shift + alt - f : chunkc tiling::window --toggle native-fullscreen
+
+# change layout of desktop
+shift + alt - c : "${HOME}"/.config/chunkwm/scripts/misc/change_mode.sh
+
+# increase / decrease gaps
+lctrl + shift + alt - g : "${HOME}"/.config/chunkwm/scripts/misc/gaps.sh 20 20 10 10 15
+
