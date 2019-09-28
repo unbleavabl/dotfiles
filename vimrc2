@@ -37,6 +37,7 @@ Plug 'othree/es.next.syntax.vim'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'chrisbra/csv.vim'
+Plug 'chr4/nginx.vim'
 
 "colorschemes
 Plug 'joshdick/onedark.vim'
